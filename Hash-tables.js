@@ -41,8 +41,12 @@ function magiclookup(element) {}
 a = {3: 'a'} // hash map - key: value pair, Javascript objects don't allow multiples of keys
 new Map() // = Python dict, single value vs key : value pair
 b = set() // doesn't record duplicates
+
 set operations:
-  add O(1) // not O(1), worst case O(N) but highly unlikely - *"amortized"* O(1) bc only in special cases of needing to double total indices - **"expected"** O(1)
+  add O(1) // not O(1), worst case O(N) 
+  //when we reach max capacity, we have to create another list of linked lists with double size, and copy everything over O(N) cost to do so
+  //*"amortized"* O(1) diffuses the cost of the doubling - like filling up gas after long stretch - only in special cases of needing to double total indices
+  // **"expected"** O(1) cases where ONE of the LL is overfilled but this case is highly unlikely bc we optimize to evenly spread - probability so low that we can consider it O(1)
   delete O(1) // O(1) amortized and expected
   has O(1) // O(1) expected
   // lookup by index - don't want this
@@ -50,6 +54,14 @@ set operations:
   // # of elements
 
 // Java has tree sets, backed by BSTs but 90% use sets instead
+
+// could we have a hash table with all unique hashes - ineffective storagewise to use hash table
+// example of having values 1, 2, 3, 1,000,000 so we have more buckets than needed for all unique values
+
+
+// Hash Map - pairs of values
+// Set - single values
+
 
 
 
