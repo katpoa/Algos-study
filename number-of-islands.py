@@ -36,4 +36,21 @@ class Solution(object):
         self.aux(grid, i - 1, j)
         self.aux(grid, i, j + 1)
         self.aux(grid, i, j - 1)
-                           
+
+    # Aaron's solution                       
+    class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        visited, count = set(), 0
+        def dfs(x, y):
+            if 0 <= y < len(grid) and 0 <= x < len(grid[0]) and grid[y][x] == "1" and (x, y) not in visited:
+                visited.add((x, y))
+                for c in [-1, 1]:
+                    dfs(x+c, y)
+                    dfs(x, y+c)
+        for y in range(len(grid)):
+            for x in range(len(grid[0])):
+                if grid[y][x] == "1" and (x, y) not in visited:
+                    dfs(x, y)
+                    count += 1
+        return count
+
