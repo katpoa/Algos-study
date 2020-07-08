@@ -146,7 +146,7 @@ class Dijkstra:
 
 
 
-# online solution (geeksforgeeks?)
+# online solution (educative.io solution)
 
 import sys
 
